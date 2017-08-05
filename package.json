@@ -1,0 +1,29 @@
+{
+  "name": "hackathon_ambev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luisholanda/hackathon_ambev.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luisholanda/hackathon_ambev/issues"
+  },
+  "homepage": "https://github.com/luisholanda/hackathon_ambev#readme",
+  "dependencies": {
+    "async": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "compression": "^1.7.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.3",
+    "helmet": "^3.8.1",
+    "morgan": "^1.8.2",
+    "serve-favicon": "^2.4.3"
+  }
+}
