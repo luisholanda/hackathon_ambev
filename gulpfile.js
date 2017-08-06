@@ -29,7 +29,7 @@ gulp.task('less', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
-    return gulp.src('public/css/grayscale.css')
+    return gulp.src('public/build/css/grayscale.css')
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
         .pipe(gulp.dest('public/build/css'))
@@ -40,7 +40,7 @@ gulp.task('minify-css', ['less'], function() {
 
 // Minify JS
 gulp.task('minify-js', function() {
-    return gulp.src('public/js/grayscale.js')
+    return gulp.src('public/build/js/grayscale.js')
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
@@ -84,9 +84,9 @@ gulp.task('browserSync', function() {
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
     gulp.watch('public/less/*.less', ['less']);
-    gulp.watch('public/css/*.css', ['minify-css']);
-    gulp.watch('public/js/*.js', ['minify-js']);
+    gulp.watch('public/build/css/*.css', ['minify-css']);
+    gulp.watch('public/build/js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
     gulp.watch('public/*.html', browserSync.reload);
-    gulp.watch('public/js/**/*.js', browserSync.reload);
+    gulp.watch('public/build/js/**/*.js', browserSync.reload);
 });
