@@ -10,6 +10,9 @@
 var express = require('express');
 var async = require('async');
 var path = require('path');
+var Beer = require('./models/beer');
+var Comment = require('./models/comment');
+var seedDB = require('./seeds');
 
 // Middlewares
 var favicon = require('serve-favicon')
@@ -28,6 +31,7 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+seedDB();
 
 // middlewares setup
 function parallel(middlewares) {
