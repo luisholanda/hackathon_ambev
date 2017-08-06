@@ -239,12 +239,14 @@ a:focus {
 .form-text {
   color: black;
   margin: 0.3%;
-  margin-left: 42%;
   text-align: center;
 }
 .form-button {
   margin: 0.3%;
   margin-left: 47%;
+}
+.center-input {
+  text-align: center;
 }
 .form-mark {
   margin-top: 7%;
@@ -368,6 +370,10 @@ ul.banner-social-buttons {
   }
 }
 footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding: 50px 0;
 }
 footer p {
@@ -425,4 +431,25 @@ img::-moz-selection {
 }
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+}
+.card {
+  background-color: black !important;
+  color: white !important;
+  border-radius: 5px;
+}
+.imageCardShop {
+  max-height: 275px;
+}
+.busca {
+  margin-left: 15 px;
+  margin-bottom: 10px;
+  height: 25px;
+  width: 50%;
+  align: left;
+}
+.butaoBusca {
+  height: 25px;
+}
+.buscaDiv {
+  margin-left: 15 px;
 }
