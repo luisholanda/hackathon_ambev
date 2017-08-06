@@ -68,10 +68,11 @@ function seedDB(){
 
 function seedBeers(){
     Beer.remove({}, function(err){
+      console.log("Cleaning beer database");
        if(err) {
            console.log(err);
        }
-        console.log("Cleaning beer database");
+       else{
        //add a few beers
         beerData.forEach(function(seed){
             Beer.create(seed, function(err, beer){
@@ -99,26 +100,29 @@ function seedBeers(){
                 }
             });
         });
+      }
     });
 }
 
 function seedUsers(){
     User.remove({}, function(err){
-      console.log(err);
-    })
     console.log('Cleaning user database');
 
-    userData.forEach(function(seed){
-      User.create(seed, function(err,user){
-        if(err){
-          console.log(err);
-        }
-        else{
-          console.log("Added new user");
-
-        }
+    if(err)
+      console.log(err);
+    else{
+      userData.forEach(function(seed){
+        User.create(seed, function(err,user){
+          if(err){
+            console.log(err);
+          }
+          else{
+            console.log("Added new user");
+          }
+        });
       });
-    });
+    }
+  });
 }
 
 module.exports = seedDB;

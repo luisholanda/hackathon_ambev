@@ -11,7 +11,6 @@ var userSchema = new mongoose.Schema({
     rank_name: String,
     level: Number,
     exp: Number
-
 })
 
 module.exports = mongoose.model("User", userSchema);
