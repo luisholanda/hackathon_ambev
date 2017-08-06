@@ -14,4 +14,8 @@ router.get("/", function(req, res){
     res.render('landing');
 });
 
+router.get("/product", (req, res) => {
+    res.render('product')
+})
+
 module.exports = router
