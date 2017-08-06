@@ -129,7 +129,7 @@ a {
     padding: 100px 0;
     text-align: center;
     color: white;
-    background: url(../../img/beer.jpeg) no-repeat bottom center scroll;
+    background: url(../../img/beer.jpeg) no-repeat bottom center fixed;
     background-color: black;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -334,6 +334,14 @@ img::selection {
 
 img::-moz-selection {
     background: transparent;
+}
+
+.head-container {
+    display: inline;
+
+    .btn-container {
+        float: right;
+    }
 }
 
 body {

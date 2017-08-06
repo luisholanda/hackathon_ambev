@@ -22,7 +22,10 @@
     "browser-sync": "^2.18.13",
     "compression": "^1.7.0",
     "cookie-parser": "^1.4.3",
+    "debug": "~2.6.8",
+    "ejs": "^2.5.7",
     "express": "^4.15.3",
+    "flash": "~1.1.0",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
     "gulp-header": "^1.8.9",
@@ -30,13 +33,10 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "helmet": "^3.8.1",
-    "morgan": "^1.8.2",
-    "serve-favicon": "^2.4.3",
-    "debug": "~2.6.8",
-    "mongoose": "~4.11.5",
-    "flash": "~1.1.0",
     "method-override": "~2.3.9",
-    "ejs": "~2.5.7"
+    "mongoose": "^4.11.5",
+    "morgan": "^1.8.2",
+    "serve-favicon": "^2.4.3"
   },
   "devDependencies": {
     "gulp-sass": "^3.1.0"
