@@ -21,7 +21,7 @@ gulp.task('less', function() {
     return gulp.src('public/less/grayscale.less')
         .pipe(less())
         .pipe(header(banner, { pkg: pkg }))
-        .pipe(gulp.dest('public/css'))
+        .pipe(gulp.dest('public/build/css'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -32,7 +32,7 @@ gulp.task('minify-css', ['less'], function() {
     return gulp.src('public/css/grayscale.css')
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('public/css'))
+        .pipe(gulp.dest('public/build/css'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -44,7 +44,7 @@ gulp.task('minify-js', function() {
         .pipe(uglify())
         .pipe(header(banner, { pkg: pkg }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('js'))
+        .pipe(gulp.dest('public/build/js'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -83,10 +83,10 @@ gulp.task('browserSync', function() {
 
 // Dev task with browserSync
 gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
-    gulp.watch('less/*.less', ['less']);
-    gulp.watch('css/*.css', ['minify-css']);
-    gulp.watch('js/*.js', ['minify-js']);
+    gulp.watch('public/less/*.less', ['less']);
+    gulp.watch('public/css/*.css', ['minify-css']);
+    gulp.watch('public/js/*.js', ['minify-js']);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch('*.html', browserSync.reload);
-    gulp.watch('js/**/*.js', browserSync.reload);
+    gulp.watch('public/*.html', browserSync.reload);
+    gulp.watch('public/js/**/*.js', browserSync.reload);
 });
