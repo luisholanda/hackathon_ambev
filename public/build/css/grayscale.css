@@ -54,6 +54,10 @@ a:focus {
 .light {
   font-weight: 400;
 }
+.level {
+  margin-top: 10%;
+  font-family: 'Sedgwick Ave Display', cursive;
+}
 .navbar-custom {
   margin-bottom: 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -263,7 +267,7 @@ a:focus {
   list-style-type: none;
 }
 #profile {
-  background-color: gold;
+  background-color: #CC6600;
   margin: 0 auto;
   margin-top: 15%;
   width: 40%;
@@ -288,7 +292,7 @@ hr {
   margin-top: -31px;
   margin-right: 10%;
   border-style: solid;
-  border-color: #8c8b8b;
+  border-color: #330000;
   border-width: 0 0 1px 0;
   border-radius: 20px;
 }
