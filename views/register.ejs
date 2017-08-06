@@ -1,9 +1,12 @@
 <% include ./partials/header %>
 
-<h1 class="form-mark">Sign Up!</h1>
-<form action="/register" method="POST">
-    <input type="text" name="username" placeholder="username" class="form-text"><br>
-    <input type="password" name="password" placeholder="password" class="form-text"><br>
-    <button type="button" class="btn btn-warning form-button">Sign Up</button>
+<h1 class="form-mark">Registre-se!</h1>
+<form action="/register" method="post">
+  <fieldset>
+    <input type="text" name="username" placeholder="Nome de usuário" class="form-text"><br>
+    <input type="password" name="password" placeholder="Senha" class="form-text"><br>
+    <input type="submit" class="btn btn-warning form-button" value="Registrar">
+  </fieldset>
 </form>
+
 <% include ./partials/footer %>

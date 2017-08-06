@@ -66,12 +66,17 @@ router.get("/user/:username", function(req, res) {
 
 //show sign up logic
 router.post("/register", function(req, res){
+  console.log("oioi");
    var newUser = new User({username: req.body.username});
+   console.log( toString(newUser) );
    User.register(newUser, req.body.password, function(err, user){
       if(err){
+        console.log("oioioi");
           req.flash('error', err.message);
           return res.render('register', {currentUser: req.user});
       }
+
+      console.log("Registrou novo usuario " + user.username);
       passport.authenticate('local')(req, res, function(){
          req.flash('success', 'Welcome to Social Beer ' + user.username);
          res.redirect('/');
@@ -85,19 +90,45 @@ router.get('/login', function(req, res){
 });
 
 //handling login logic
-router.post('/login', passport.authenticate("local",
+  router.post('/login', function (req, res, next){
+    console.log(req.session);
+    console.log("OI");
+    console.log(req.cookies);
+
+    next();
+  }, passport.authenticate("local",
     {
         successRedirect: "/",
         failureRedirect: "/login"
-    }), function(req, res){
-
-});
+    })
+);
 
 //logout route
 router.get("/logout", function(req, res){
    req.logout();
    req.flash("success", "Logged you out!");
    res.redirect('/');
+});
+
+router.get('/profile', function(req, res){
+  console.log(req.user);
+  User.findOne(
+    {
+      username: req.session.passport.user
+    }
+  ).then( function(user) {
+
+        res.render('userprofile',
+             {
+               currentUser: {
+                 name: user.name,
+                 self_description: user.self_description,
+                 rank_name: user.rank_name,
+                 level: user.level,
+                 exp: user.exp
+               }
+             });
+      });
 });
 
 module.exports = router
