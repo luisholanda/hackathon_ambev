@@ -55,12 +55,12 @@ Copyright (c) 2017 Your Company
 					<h1>Dádiva Tripel Bock 28</h1>
 					
 					<div class="btn-container">
-						<a href="" class="btn btn-lg">Descrição</a>
-						<a href="" class="btn btn-lg">Discussão</a>
+						<btn class="btn btn-lg" onclick="showDesc()">Descrição</btn>
+						<btn class="btn btn-lg" onclick="showDisc()">Discussão</btn>
 					</div>
 				</div>
 
-				<div class="description">
+				<div id="description">
 
 					<div class="desc-description">
 						<h2>Descrição</h2>
@@ -97,18 +97,47 @@ Copyright (c) 2017 Your Company
 							<li>Outros: Amendoim, castanha de caju, amêndoa, acarajé, caldo de feijão, caldo-verde, sopa de legumes, feijoada, paella e comida mexicana</li>
 						</ul>
 					</div>
-				</div>
 
-				<div class="row">
+					<div class="row">
 					<div class="col-md-4 col-md-offset-4">
 						<h2>R$ 30,00</h2>
 						<a href="" class="btn btn-lg">COMPRAR</a>
 					</div>
+					</div>
+				</div>
+
+				<div id="discution">
+					
+					<div class="comentario">
+						<h3 href="" class="nome">Membro 1</h3>
+						<div class="corpo-comentario">
+						<p>Ullamco amet nulla amet sint laboris labore aute. Proident irure nostrud aliquip eiusmod 
+						nisi sit laborum dolore dolore voluptate deserunt mollit labore. Ea consequat id anim quis eu 
+						velit commodo fugiat. Dolore ad non aliquip veniam culpa mollit reprehenderit pariatur non 
+						proident consequat nisi nulla laboris. Lorem do aliqua dolor consectetur ullamco. Occaecat non 
+						id cupidatat ex aliqua aute non adipisicing sunt officia quis cupidatat do.</p>
+						</div>
+					</div>
+
+					<div class="comentario">
+						<h3 class="nome">Membro 2</h3>
+						<div class="corpo-comentario">
+						<p>Ea ad dolor occaecat culpa excepteur tempor id reprehenderit excepteur non nulla id. 
+						Laborum mollit sit non quis nostrud eiusmod non tempor sunt excepteur ea. Adipisicing deserunt 
+						exercitation dolor ad excepteur consequat consectetur ad consectetur. Laboris commodo deserunt 
+						in sunt nulla ipsum eu. Consequat nulla nostrud qui cillum elit. Non aliqua do labore sit 
+						minim ullamco quis proident adipisicing voluptate Lorem. Velit enim in labore exercitation 
+						culpa ut eu voluptate ut.</p>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
 
 		<% include partials/footer.ejs%>
+
+		<script src="build/js/product.min.js"></script>
 	</body>
 </html>
 
