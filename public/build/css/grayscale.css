@@ -243,7 +243,6 @@ a:focus {
 }
 .form-button {
   margin: 0.3%;
-  margin-left: 47%;
 }
 .center-input {
   text-align: center;
@@ -369,14 +368,14 @@ ul.banner-social-buttons {
     margin-bottom: 0;
   }
 }
-footer {
-  position: absolute;
+#footer {
+  position: relative;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 50px 0;
 }
-footer p {
+#footer p {
   margin: 0;
 }
 ::-moz-selection {
@@ -394,6 +393,9 @@ img::selection {
 }
 img::-moz-selection {
   background: transparent;
+}
+#cont {
+  position: relative;
 }
 .head-container {
   display: inline;
@@ -451,7 +453,7 @@ body {
   height: 25px;
 }
 .buscaDiv {
-  margin-left: 15 px;
+  margin-left: 15px;
 }
 .userprofile {
   margin-top: -120px;
