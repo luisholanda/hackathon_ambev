@@ -37,9 +37,7 @@ router.get("/user/:username", function(req, res) {
     username = req.params.username;
 
     User.findOne({'name': username})
-        .then(function (err, user) {
-            if (err) throw err;
-
+        .then(function (user)  {
             console.log(user);
             if (!user)
                 res.redirect('/')
@@ -52,15 +50,24 @@ router.get("/user/:username", function(req, res) {
                     fs.read('../public/img/eric.jpg', function (err, _, buf) {
                         user.photo.data = buf.toString('base64');
 
-                        res.render('user', user)
+                        res.render('user', {
+                            user: user,
+                            currentUser: req.session.passport
+                        })
                     })
                 } else {
                     user.photo.data = user.photo.data.buffer.toString('base64')
 
-                    res.render('user', user)
+                    res.render('user', {
+                            user: user,
+                            currentUser: req.session.passport
+                        })
                 }
-
             }
+        })
+        .catch(function (err) {
+            throw err
+            res.redirect('/')
         })
 });
 
