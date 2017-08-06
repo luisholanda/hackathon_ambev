@@ -7,11 +7,10 @@ var userSchema = new mongoose.Schema({
               data: Buffer,
               contentType: String
             },
-
     rank_name: String,
     level: Number,
     exp: Number
 
-})
+});
 
 module.exports = mongoose.model("User", userSchema);

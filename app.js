@@ -22,6 +22,9 @@ var bodyParser = require('body-parser')
 var compression = require('compression')
 var helmet = require('helmet')
 var mongoose = require('mongoose')
+var passport = require('passport')
+var LocalStrategy = require('passport-local')
+
 
 // Routes
 var routes = require('./routes/index')
