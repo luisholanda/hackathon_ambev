@@ -6,17 +6,17 @@
     </div>
     <div>
         <ul id="best-list" margin-top="5%">
-            <li><h3><% name %></h3></li>
+            <li><h3><%= name %></h3></li>
             <hr>
-            <li><i>"<% self_destcription %>"</i></li>
+            <li><i>"<%= self_destcription %>"</i></li>
             <hr>
                 <div class="col-sm-6">
-                    <img height="50%" width="50%" src=<% photo.data %> /><br>
-                    <li id="rank"><strong><% rank_name %></strong></li>
+                    <img height="50%" width="50%" src=<%= photo.data %> /><br>
+                    <li id="rank"><strong><%= rank_name %></strong></li>
                 </div>
                 <div class="col-sm-6">
-                    <li class="level">Level: <% level %></li>
-                    <li class="level">Exp: <% exp %>/100</li>
+                    <li class="level">Level: <%= level %></li>
+                    <li class="level">Exp: <%= exp %>/100</li>
                 </div>
         </ul>
     </div>

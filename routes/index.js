@@ -37,7 +37,9 @@ router.get("/user/:username", function(req, res) {
     username = req.params.username;
 
     User.findOne({'name': username})
-        .then(function (user) {
+        .then(function (err, user) {
+            if (err) throw err;
+
             console.log(user);
             if (!user)
                 res.redirect('/')
