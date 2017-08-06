@@ -7,6 +7,9 @@ var User = require('./models/user');
 
 var userData = [
   {
+    username: "a",
+    password: "b",
+
     name: "Precs",
     self_description: "Water is my favorite beer",
     photo:
@@ -20,6 +23,9 @@ var userData = [
     exp: 24
   },
   {
+    username: "b",
+    password: "c",
+
     name: "Coimbra",
     self_description: "I like drinking",
     photo:
@@ -34,6 +40,9 @@ var userData = [
     exp: 570
   },
   {
+    username: "c",
+    password: "d",
+
     name: "Tchola",
     self_description: "I dont drink",
     photo:
@@ -112,7 +121,7 @@ function seedUsers(){
       console.log(err);
     else{
       userData.forEach(function(seed){
-        User.create(seed, function(err,user){
+        User.register(seed, seed.password, function(err,user){
           if(err){
             console.log(err);
           }

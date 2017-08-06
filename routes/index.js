@@ -88,13 +88,18 @@ router.get('/login', function(req, res){
 });
 
 //handling login logic
-router.post('/login', passport.authenticate("local",
+  router.post('/login', function (req, res, next){
+    console.log(req.session);
+    console.log("OI");
+    console.log(req.cookies);
+
+    next();
+  }, passport.authenticate("local",
     {
         successRedirect: "/",
         failureRedirect: "/login"
-    }), function(req, res){
-
-});
+    })
+);
 
 //logout route
 router.get("/logout", function(req, res){
@@ -104,10 +109,24 @@ router.get("/logout", function(req, res){
 });
 
 router.get('/profile', function(req, res){
-   res.render('userprofile',
-        {
-          currentUser: req.user
-        });
+  console.log(req.user);
+  User.findOne(
+    {
+      username: req.session.passport.user
+    }
+  ).then( function(user) {
+
+        res.render('userprofile',
+             {
+               currentUser: {
+                 name: user.name,
+                 self_description: user.self_description,
+                 rank_name: user.rank_name,
+                 level: user.level,
+                 exp: user.exp
+               }
+             });
+      });
 });
 
 module.exports = router
