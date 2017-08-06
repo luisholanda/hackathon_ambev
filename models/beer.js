@@ -1,4 +1,4 @@
-var moongose = require('mongoose');
+var mongoose = require('mongoose');
 
 var beerSchema = new mongoose.Schema({
     name: String,
