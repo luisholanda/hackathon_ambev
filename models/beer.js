@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 
+mongoose.connect('mongodb://user:pass@ds133271.mlab.com:33271/hackathon');
+
 var beerSchema = new mongoose.Schema({
     name: String,
     description: String,

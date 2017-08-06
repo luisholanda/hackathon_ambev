@@ -33,24 +33,8 @@ var routes = require('./routes/index')
 
 var app = express();
 
-app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
-app.use(methodOverride("_method"));
-app.use(flash());
 seedDB();
-
-// passport configuration
-app.use(require("express-session")({
-    secret: "fuck mega",
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(new LocalStrategy(User.authenticate()));
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 // middlewares setup
 function parallel(middlewares) {
@@ -74,8 +58,21 @@ app.use(parallel([
   express.static(path.join(__dirname, 'public'), {
     maxAge: 86400000 * 7
   }),
-  compression({level: 1})
+  compression({level: 1}),
+  flash(),
+  methodOverride("_method"),
+  require("express-session")({
+    secret: "fuck mega",
+    resave: false,
+    saveUninitialized: false
+  }),
+  passport.initialize(),
+  passport.session()
 ]))
+
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Routes setup
 app.use(routes);
