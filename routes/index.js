@@ -46,7 +46,7 @@ router.post("/register", function(req, res){
           return res.render('register', {currentUser: req.user});
       }
 
-      console.log("Registrou novo usuario" + user.username);
+      console.log("Registrou novo usuario " + user.username);
       passport.authenticate('local')(req, res, function(){
          req.flash('success', 'Welcome to Social Beer ' + user.username);
          res.redirect('/');
@@ -78,7 +78,7 @@ router.get("/logout", function(req, res){
 router.get('/profile', function(req, res){
    res.render('userprofile',
         {
-          myself: req.user
+          currentUser: req.user
         });
 });
 
