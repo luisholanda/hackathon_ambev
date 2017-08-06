@@ -26,12 +26,14 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
 }
+li,
 p {
   margin: 0 0 25px;
   font-size: 18px;
   line-height: 1.5;
 }
 @media (min-width: 768px) {
+  li,
   p {
     margin: 0 0 35px;
     font-size: 20px;
@@ -39,7 +41,7 @@ p {
   }
 }
 a {
-  color: #42DCA3;
+  color: black;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -47,7 +49,7 @@ a {
 a:hover,
 a:focus {
   text-decoration: none;
-  color: #1d9b6c;
+  color: #000000;
 }
 .light {
   font-weight: 400;
@@ -112,6 +114,7 @@ a:focus {
     transition: background 0.5s ease-in-out, padding 0.5s ease-in-out;
   }
   .navbar-custom.top-nav-collapse {
+    height: 50px;
     padding: 0;
     background: black;
     border-bottom: 1px solid rgba(255, 255, 255, 0.3);
@@ -257,19 +260,18 @@ a:focus {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
-  border-radius: 0;
+  border-radius: 2px;
 }
 .btn-default {
-  border: 1px solid #42DCA3;
-  color: #42DCA3;
+  color: black;
   background-color: transparent;
 }
 .btn-default:hover,
 .btn-default:focus {
-  border: 1px solid #42DCA3;
+  border: 1px solid black;
   outline: none;
   color: black;
-  background-color: #42DCA3;
+  background-color: black;
 }
 ul.banner-social-buttons {
   margin-top: 0;
@@ -316,7 +318,23 @@ img::-moz-selection {
 }
 .head-container .btn-container {
   float: right;
+  margin-top: -72px;
+}
+.pad {
+  margin-top: 120px;
+  width: 100%;
+}
+.pad img {
+  position: fixed;
+  margin-left: 160px;
+  z-index: 1;
+  height: 80%;
+  width: auto;
+}
+.pad .text {
+  padding-left: 120px;
+  width: 60%;
 }
 body {
-  webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
 }
