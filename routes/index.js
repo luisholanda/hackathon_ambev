@@ -3,7 +3,7 @@
  * Path: /home/luiscm/Projects/hackathon_ambev
  * Created Date: Saturday, August 5th 2017, 2:56:54 pm
  * Author: luiscm
- * 
+ *
  * Copyright (c) 2017 Your Company
  */
 
@@ -32,12 +32,17 @@ router.get("/user", function(req, res){
 
 //show sign up logic
 router.post("/register", function(req, res){
+  console.log("oioi");
    var newUser = new User({username: req.body.username});
+   console.log( toString(newUser) );
    User.register(newUser, req.body.password, function(err, user){
       if(err){
+        console.log("oioioi");
           req.flash('error', err.message);
           return res.render('register', {currentUser: req.user});
       }
+
+      console.log("Registrou novo usuario" + user.username);
       passport.authenticate('local')(req, res, function(){
          req.flash('success', 'Welcome to Social Beer ' + user.username);
          res.redirect('/');
@@ -64,6 +69,13 @@ router.get("/logout", function(req, res){
    req.logout();
    req.flash("success", "Logged you out!");
    res.redirect('/');
+});
+
+router.get('/profile', function(req, res){
+   res.render('userprofile',
+        {
+          myself: req.user
+        });
 });
 
 module.exports = router
