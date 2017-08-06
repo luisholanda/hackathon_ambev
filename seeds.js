@@ -7,6 +7,9 @@ var User = require('./models/user');
 
 var userData = [
   {
+    username: "a",
+    password: "b",
+
     name: "Precs",
     self_description: "Water is my favorite beer",
     photo:
@@ -20,6 +23,9 @@ var userData = [
     exp: 24
   },
   {
+    username: "b",
+    password: "c",
+
     name: "Coimbra",
     self_description: "I like drinking",
     photo:
@@ -34,6 +40,9 @@ var userData = [
     exp: 570
   },
   {
+    username: "c",
+    password: "d",
+
     name: "Tchola",
     self_description: "I dont drink",
     photo:
@@ -68,10 +77,11 @@ function seedDB(){
 
 function seedBeers(){
     Beer.remove({}, function(err){
+      console.log("Cleaning beer database");
        if(err) {
            console.log(err);
        }
-        console.log("Cleaning beer database");
+       else{
        //add a few beers
         beerData.forEach(function(seed){
             Beer.create(seed, function(err, beer){
@@ -99,26 +109,29 @@ function seedBeers(){
                 }
             });
         });
+      }
     });
 }
 
 function seedUsers(){
     User.remove({}, function(err){
-      console.log(err);
-    })
     console.log('Cleaning user database');
 
-    userData.forEach(function(seed){
-      User.create(seed, function(err,user){
-        if(err){
-          console.log(err);
-        }
-        else{
-          console.log("Added new user");
-
-        }
+    if(err)
+      console.log(err);
+    else{
+      userData.forEach(function(seed){
+        User.register(seed, seed.password, function(err,user){
+          if(err){
+            console.log(err);
+          }
+          else{
+            console.log("Added new user");
+          }
+        });
       });
-    });
+    }
+  });
 }
 
 module.exports = seedDB;
