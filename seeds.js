@@ -1,8 +1,54 @@
 var mongoose = require('mongoose');
+var fs = require('fs');
+
 var Beer = require('./models/beer');
 var Comment = require('./models/comment');
+var User = require('./models/user');
 
-var data = [
+var userData = [
+  {
+    name: "Precs",
+    self_description: "Water is my favorite beer",
+    photo:
+          {
+            data: fs.readFileSync('./public/img/eric.jpg'),
+            contentType: "image/jpg"
+          },
+
+    rank_name: "Noob",
+    level: 1,
+    exp: 24
+  },
+  {
+    name: "Coimbra",
+    self_description: "I like drinking",
+    photo:
+          {
+            data: fs.readFileSync('./public/img/coimbra.jpg'),
+            contentType: "image/jpg"
+          },
+
+    rank_name: "Cerva-Boy",
+
+    level: 5,
+    exp: 570
+  },
+  {
+    name: "Tchola",
+    self_description: "I dont drink",
+    photo:
+          {
+            data: fs.readFileSync('./public/img/luisclaudio.jpg'),
+            contentType: "image/jpg"
+          },
+
+    rank_name: "Virgin",
+    level: -1,
+    exp: 0
+  }
+];
+
+var beerData = [
     {
         name: "Stella Artois",
         description: "Aroma suave, notas maltadas e mais de 600 anos de tradição em produção de cerveja.",
@@ -16,13 +62,18 @@ var data = [
 ];
 
 function seedDB(){
+  seedBeers();
+  seedUsers();
+}
+
+function seedBeers(){
     Beer.remove({}, function(err){
        if(err) {
            console.log(err);
        }
         console.log("Cleaning beer database");
        //add a few beers
-        data.forEach(function(seed){
+        beerData.forEach(function(seed){
             Beer.create(seed, function(err, beer){
                 if(err){
                     console.log(err);
@@ -48,6 +99,25 @@ function seedDB(){
                 }
             });
         });
+    });
+}
+
+function seedUsers(){
+    User.remove({}, function(err){
+      console.log(err);
+    })
+    console.log('Cleaning user database');
+
+    userData.forEach(function(seed){
+      User.create(seed, function(err,user){
+        if(err){
+          console.log(err);
+        }
+        else{
+          console.log("Added new user");
+
+        }
+      });
     });
 }
 
