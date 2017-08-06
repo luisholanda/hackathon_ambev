@@ -12,7 +12,7 @@ var userData = [
 
     name: "Precs",
     self_description: "Water is my favorite beer",
-    photo: 'img/eric.jpg',
+    photo: '/img/eric.jpg',
 
     rank_name: "Noob",
     level: 1,
@@ -24,7 +24,7 @@ var userData = [
 
     name: "Coimbra",
     self_description: "I like drinking",
-    photo: 'img/coimbra.jpg',
+    photo: '/img/coimbra.jpg',
 
     rank_name: "Cerva-Boy",
 
@@ -37,7 +37,7 @@ var userData = [
 
     name: "Tchola",
     self_description: "I dont drink",
-    photo: 'img/luisclaudio.jpg',
+    photo: '/img/luisclaudio.jpg',
 
     rank_name: "Virgin",
     level: -1,
