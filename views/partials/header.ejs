@@ -16,7 +16,8 @@
     <!--<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+    <link href="https://fonts.googleapis.com/css?family=Sedgwick+Ave+Display" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oleo+Script+Swash+Caps" rel="stylesheet">
     <!-- Optional theme -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
@@ -59,23 +60,23 @@
                     <a href="#page-top"></a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#about">About</a>
+                    <a class="page-scroll" href="#about">Sobre</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#shop">Shop</a>
+                    <a class="page-scroll" href="#shop">Loja</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#community">Community</a>
+                    <a class="page-scroll" href="#community">Comunidade</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#subscription">Subscription</a>
+                    <a class="page-scroll" href="#subscription">Assinar</a>
                 </li>
-                <% if(!currentUser) { %>
-                    <li><a href="/login">Login</a></li>
-                    <li><a href="/register">Sign Up</a></li>
+                <% if(!currentUser){ %>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Registrar</a></li>
                 <% } else { %>
-                    <li><a href="#">Signed In As <%= currentUser.username %></a></li>
-                    <li><a href="/logout">Logout</a></li>
+                <li><a href="/user"><%= currentUser.username %></a></li>
+                <li><a href="/logout">Sair</a></li>
                 <% } %>
             </ul>
         </div>
