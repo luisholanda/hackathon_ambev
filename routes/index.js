@@ -14,7 +14,7 @@ router.get("/", function(req, res) {
     res.render('landing');
 });
 
-router.get("/product", (req, res) {
+router.get("/product", function(req, res) {
     res.render('product')
 });
 
