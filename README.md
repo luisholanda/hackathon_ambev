@@ -1,2 +1,2 @@
 # SocialBeer
-Social network for beers fans! Get to know more beers, listen and share other options and become the Legendary Beer Master!
+Social network for beers fans: Meet more beers. Share your preferences. Become the Legendary Beer Master!
