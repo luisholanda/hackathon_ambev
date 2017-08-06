@@ -17,6 +17,10 @@ router.get("/", function(req, res) {
     res.render('landing', {currentUser: req.user});
 });
 
+router.get("/shop", function(req, res) {
+    res.render('shop', {currentUser: req.user});
+});
+
 router.get("/product", function(req, res) {
     res.render('product', {currentUser: req.user});
 });
