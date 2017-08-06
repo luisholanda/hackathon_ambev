@@ -12,6 +12,7 @@ var async = require('async');
 var path = require('path');
 var Beer = require('./models/beer');
 var Comment = require('./models/comment');
+var User = require('./models/user');
 var seedDB = require('./seeds');
 
 // Middlewares
@@ -24,7 +25,8 @@ var helmet = require('helmet')
 var mongoose = require('mongoose')
 var passport = require('passport')
 var LocalStrategy = require('passport-local')
-
+var methodOverride = require('method-override')
+var flash = require('connect-flash')
 
 // Routes
 var routes = require('./routes/index')
@@ -34,7 +36,21 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
+app.use(flash());
 seedDB();
+
+// passport configuration
+app.use(require("express-session")({
+    secret: "fuck mega",
+    resave: false,
+    saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // middlewares setup
 function parallel(middlewares) {
@@ -62,7 +78,7 @@ app.use(parallel([
 ]))
 
 // Routes setup
-app.use(routes)
+app.use(routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -71,11 +87,18 @@ app.use(function (req, res, next) {
   next(err);
 });
 
+app.use(function(req, res, next){
+   res.locals.currentUser = req.user;
+   next();
+});
+
 // error handler
 app.use(function (err, req, res) {
   // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+    user = req.user;
+    res.locals({
+        currentUser: req.user
+    });
 
   // render the error page
   res.status(err.status || 500);
