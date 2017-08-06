@@ -18,12 +18,16 @@ var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
 var compression = require('compression')
 var helmet = require('helmet')
+var mongoose = require('mongoose')
 
 // Routes
 var routes = require('./routes/index')
 
 var app = express();
 
+app.use(bodyParser.urlencoded({extended: true}));
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
 
 // middlewares setup
 function parallel(middlewares) {
