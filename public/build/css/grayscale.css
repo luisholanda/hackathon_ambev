@@ -246,12 +246,25 @@ a:focus {
   margin-top: 7%;
   text-align: center;
 }
+.subscription-section {
+  width: 100%;
+  height: 500px;
+  padding: 50px 0;
+  color: white;
+  text-shadow: 1px 1px 10px black;
+  background: url(../../img/beerblur.jpg) no-repeat center center fixed;
+  background-color: black;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
 .shop-section {
   width: 100%;
   height: 500px;
   padding: 50px 0;
   color: white;
-  text-shadow: 1px 1px 4px black;
+  text-shadow: 1px 1px 10px black, 0px 0px 10px black;
   background: url(../../img/beershop.jpg) no-repeat center center fixed;
   background-color: black;
   -webkit-background-size: cover;
