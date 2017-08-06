@@ -3,7 +3,7 @@
  * Path: /home/luiscm/Projects/hackathon_ambev
  * Created Date: Saturday, August 5th 2017, 2:56:54 pm
  * Author: luiscm
- * 
+ *
  * Copyright (c) 2017 Your Company
  */
 
@@ -15,6 +15,10 @@ var User = require('../models/user');
 //root route
 router.get("/", function(req, res) {
     res.render('landing', {currentUser: req.user});
+});
+
+router.get("/shop", function(req, res) {
+    res.render('shop', {currentUser: req.user});
 });
 
 router.get("/product", function(req, res) {
