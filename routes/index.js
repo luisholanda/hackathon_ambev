@@ -44,27 +44,13 @@ router.get("/user/:username", function(req, res) {
             if (!user)
                 res.redirect('/')
             else {
-                if (!user.photo) {
-                    user.photo = {
-                        contentType: 'image/jpg'
-                    }
+                if (!user.photo)
+                    user.photo = '/img/eric.jpg'
 
-                    fs.read('../public/img/eric.jpg', function (err, _, buf) {
-                        user.photo.data = buf.toString('base64');
-
-                        res.render('user', {
-                            user: user,
-                            currentUser: req.session.passport
-                        })
-                    })
-                } else {
-                    user.photo.data = user.photo.data.buffer.toString('base64')
-
-                    res.render('user', {
-                            user: user,
-                            currentUser: req.session.passport
-                        })
-                }
+                res.render('user', {
+                    user: user,
+                    currentUser: req.session.passport
+                })
             }
         })
         .catch(function (err) {

@@ -1,23 +1,21 @@
 <% include ./partials/header %>
 
 <div id="profile">
-    <div id="avatar">
-        <img id="avatar" src='<%= user.photo%>'/>
-    </div>
+    <div id="avatar" style="background-image: url('<%= user.photo%>')"></div>
     <div>
-        <ul id="best-list" margin-top="5%">
-            <li><h3><%= user.name %></h3></li>
-            <hr>
-            <li><i>"<%= user.self_destcription %>"</i></li>
-            <hr>
-                <div class="col-sm-6">
-                    <img height="50%" width="50%" src="https://s-media-cache-ak0.pinimg.com/originals/ed/e3/22/ede322e92267c40b615d0eb4c152fd47.jpg" /><br>
-                    <li id="rank"><strong><%= user.rank_name %></strong></li>
-                </div>
-                <div class="col-sm-6">
-                    <li class="level">Level: <%= user.level %></li>
-                    <li class="level">Exp: <%= user.exp %>/100</li>
-                </div>
+        <ul class="row" id="best-list" margin-top="5%">
+            <li><h1><%= user.name %></h1></li>
+            
+            <li><i>"<%= user.self_description %>"</i></li>
+            
+            <div class="col-sm-6">
+               <img height="50%" width="50%" src="https://s-media-cache-ak0.pinimg.com/originals/ed/e3/22/ede322e92267c40b615d0eb4c152fd47.jpg" /><br>
+               <li id="rank"><strong><%= user.rank_name %></strong></li>
+            </div>
+            <div class="col-sm-6">
+                <li class="level">Level: <%= user.level %></li>
+                <li class="level">Exp: <%= user.exp %>/100</li>
+            </div>
         </ul>
     </div>
 </div>
