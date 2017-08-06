@@ -30,6 +30,7 @@ router.get("/product", function(req, res) {
 
 //show register form
 router.get("/register", function (req, res) {
+    console.log(req.user);
    res.render('register', {currentUser: req.user});
 });
 
@@ -38,7 +39,7 @@ router.get("/user/:username", function(req, res) {
 
     User.findOne({'name': username})
         .then(function (user) {
-            console.log(user);
+
             if (!user)
                 res.redirect('/')
             else {
@@ -89,9 +90,6 @@ router.get('/login', function(req, res){
 
 //handling login logic
   router.post('/login', function (req, res, next){
-    console.log(req.session);
-    console.log("OI");
-    console.log(req.cookies);
 
     next();
   }, passport.authenticate("local",
@@ -109,7 +107,7 @@ router.get("/logout", function(req, res){
 });
 
 router.get('/profile', function(req, res){
-  console.log(req.user);
+  console.log("undefined??  " + toString(req.user) );
   User.findOne(
     {
       username: req.session.passport.user

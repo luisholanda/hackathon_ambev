@@ -12,11 +12,7 @@ var userData = [
 
     name: "Precs",
     self_description: "Water is my favorite beer",
-    photo:
-          {
-            data: fs.readFileSync('./public/img/eric.jpg'),
-            contentType: "image/jpg"
-          },
+    photo: './public/img/eric.jpg',
 
     rank_name: "Noob",
     level: 1,
@@ -28,11 +24,7 @@ var userData = [
 
     name: "Coimbra",
     self_description: "I like drinking",
-    photo:
-          {
-            data: fs.readFileSync('./public/img/coimbra.jpg'),
-            contentType: "image/jpg"
-          },
+    photo: './public/img/coimbra.jpg',
 
     rank_name: "Cerva-Boy",
 
@@ -45,11 +37,7 @@ var userData = [
 
     name: "Tchola",
     self_description: "I dont drink",
-    photo:
-          {
-            data: fs.readFileSync('./public/img/luisclaudio.jpg'),
-            contentType: "image/jpg"
-          },
+    photo: './public/img/luisclaudio.jpg',
 
     rank_name: "Virgin",
     level: -1,
