@@ -7,10 +7,13 @@
  * Copyright (c) 2017 Your Company
  */
 
+var fs = require('fs');
+
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var User = require('../models/user');
+
 
 //root route
 router.get("/", function(req, res) {
@@ -26,8 +29,33 @@ router.get("/register", function (req, res) {
    res.render('register', {currentUser: req.user});
 });
 
-router.get("/user", function(req, res){
-   res.render('user', {currentUser: req.user});
+router.get("/user/:username", function(req, res) {
+    username = req.params.username;
+
+    User.findOne({'name': username})
+        .then(function (user) {
+            console.log(user);
+            if (!user)
+                res.redirect('/')
+            else {
+                if (!user.photo) {
+                    user.photo = {
+                        contentType: 'image/jpg'
+                    }
+
+                    fs.read('../public/img/eric.jpg', function (err, _, buf) {
+                        user.photo.data = buf.toString('base64');
+
+                        res.render('user', user)
+                    })
+                } else {
+                    user.photo.data = user.photo.data.buffer.toString('base64')
+
+                    res.render('user', user)
+                }
+
+            }
+        })
 });
 
 //show sign up logic

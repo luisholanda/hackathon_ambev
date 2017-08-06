@@ -6,17 +6,17 @@
     </div>
     <div>
         <ul id="best-list" margin-top="5%">
-            <li><h3>Eric Moreira</h3></li>
+            <li><h3><% name %></h3></li>
             <hr>
-            <li><i>"Heavy Drinker!"</i></li>
+            <li><i>"<% self_destcription %>"</i></li>
             <hr>
                 <div class="col-sm-6">
-                    <img height="50%" width="50%" src="https://s-media-cache-ak0.pinimg.com/originals/ed/e3/22/ede322e92267c40b615d0eb4c152fd47.jpg" /><br>
-                    <li id="rank"><strong>Beer Enthusiastic</strong></li>
+                    <img height="50%" width="50%" src=<% photo.data %> /><br>
+                    <li id="rank"><strong><% rank_name %></strong></li>
                 </div>
                 <div class="col-sm-6">
-                    <li class="level">Level: 3</li>
-                    <li class="level">Exp: 60/100</li>
+                    <li class="level">Level: <% level %></li>
+                    <li class="level">Exp: <% exp %>/100</li>
                 </div>
         </ul>
     </div>
